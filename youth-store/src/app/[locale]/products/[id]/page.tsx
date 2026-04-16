@@ -8,6 +8,7 @@ import { formatMad } from "@/lib/format-price";
 import { serializeProduct } from "@/lib/product-serialize";
 import { ProductImageCarousel } from "@/components/ProductImageCarousel";
 import { ProductPurchasePanel } from "@/components/ProductPurchasePanel";
+import { ProductCard } from "@/components/ProductCard";
 
 type Props = {
   params: Promise<{ locale: string; id: string }>;
@@ -24,6 +25,12 @@ export default async function ProductDetailPage({ params }: Props) {
 
   const product = await prisma.product.findUnique({ where: { id } });
   if (!product) notFound();
+
+  const otherProducts = await prisma.product.findMany({
+    where: { id: { not: id } },
+    orderBy: { createdAt: "desc" },
+    take: 4,
+  });
 
   const t = await getTranslations("product");
   const serialized = serializeProduct(product);
@@ -55,6 +62,19 @@ export default async function ProductDetailPage({ params }: Props) {
           <ProductPurchasePanel productId={product.id} colorVariants={serialized.colorVariants} />
         </section>
       </div>
+
+      {otherProducts.length > 0 && (
+        <section className="mt-20 border-t border-outline-variant/20 pt-16">
+          <h2 className="mb-10 font-headline text-2xl text-primary md:text-3xl">
+            {t("youMayAlsoLike")}
+          </h2>
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
+            {otherProducts.map((p) => (
+              <ProductCard key={p.id} product={serializeProduct(p)} />
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   );
 }

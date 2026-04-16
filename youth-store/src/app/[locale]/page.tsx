@@ -2,16 +2,13 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ArticlesSlider } from "@/components/home/ArticlesSlider";
-import { HeroCanvasGate } from "@/components/home/HeroCanvasGate";
 
-const HERO_IMG =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAT8cX3gmDgRGKM8iCx-Z-2RXcGFOEAMTvPK419f677qaCCIxA10LRNOpyvPU2eacFqZSyG6s2lRzT8sWjlpk652y3Qngu3vFLGpN6hFLpkd7wyghm5qgv-gBIpG9laJa3RFndFwVcrLgwvv2S_noupXD4R0oV6d7t_5o-yHnoLqluTieC04w0e9HBrWGi0__h9gSgDbviFfBO_X85-1q4Z1K971WJONPO_GX8ehZfvfmHAcAqEFtFWXrLkGyiZqXwpZva_nKlpLtvz";
+const HERO_IMG = "/api/uploads/p/hero1.jpg";
 
 const CAMPAIGN_IMG =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuA5pMfJ3uiVQMngtLc8LkPLTdufhrEY3NdOHlRsFXpDWGSxxoock0swZoWfVZQXqL5dSGYBkzGvizmRZ9zYvfQfRZDZ8CKIFrOoimCzopNeqEIPMWenMzqGxZyt2iGfTO47RQAacMniCglgCzqMSOrjGoF5Tkd5UeIXFqDYY9B9wBMl6yNrHggyN5PybwNuogo40xXcKgA4uT-p29bs8f43SawFZUQ6VQkJ_tMGWfc2RbwyqO1ZUg7uPb1E8Cn8Fnj9HJIGRxyl3FzA";
 
-const CAT_MEN =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCQsHUgCzZSzyojxSbMoTvWv9Esoh2Yt6O6n3uewUXt_z4esTV7zYH_fSL99qH6EeSz9_HimTMYx4wv64hzxJqRWq3ULAA7JJ23Shq4s5f5Zi3KclyG4Nul7XigXOfPomPp666xzD2skTF7wVJvs6knWX7an0T6C1ZiCqIY-uboZMNrlakbP5eAvRuPDbyjx7WeQIwbix-g5VEEJx0ZMvRXx-yoqmc-ZHNHL_rD3he0-BQfJH2-VtqrGdxVLm1FUKUgr-KPoOc25GH9";
+const CAT_MEN = "/api/uploads/p/de6040c10e97c13901abe1fe16014620.jpg";
 
 const CAT_WOMEN =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuClOOHhYjhgV3bXFXiqw3_bZ-PeAn00G2P3Y1yTtoamqmMdOEKkWVsdGMB54JhuRcTl6g4UVpFhbPy7xnucmo8CQZRXsmFGqCVvlui8PVvp5lhE1IPTM0nToLMLqfmlNdCcQFdQBqtY_-guPQcE_jw24q0tSO2w6IVFiLcjXWzm3JAB6Ui_1zG6Z-7DHULST_n_9iNvE2LwTYIhkHz06bae_-ndxNu_dJW6wMcei-cnINfO23395mnWKuXk-_p5PXxh3KwUWxht-zVk";
@@ -79,8 +76,7 @@ export default async function HomePage() {
             unoptimized
           />
         </div>
-        <HeroCanvasGate />
-        <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-black/20 via-black/5 to-black/25" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 z-[2] bg-black/40" aria-hidden />
         <div className="relative z-10 flex min-h-[100dvh] flex-col items-center justify-center px-6 text-center">
           <h1 className="font-headline text-5xl font-extralight italic tracking-tighter text-white drop-shadow-2xl md:text-8xl lg:text-9xl">
             {t("heroLine1")}{" "}

@@ -104,7 +104,8 @@
     "sizeM": "M",
     "sizeL": "L",
     "sizeXL": "XL",
-    "colorVariant": "اللون"
+    "colorVariant": "اللون",
+    "youMayAlsoLike": "قد يعجبك أيضاً"
   },
   "admin": {
     "title": "لوحة التحكم",

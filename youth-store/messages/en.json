@@ -104,7 +104,8 @@
     "sizeM": "M",
     "sizeL": "L",
     "sizeXL": "XL",
-    "colorVariant": "Color"
+    "colorVariant": "Color",
+    "youMayAlsoLike": "You may also like"
   },
   "admin": {
     "title": "Dashboard",

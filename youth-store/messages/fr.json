@@ -104,7 +104,8 @@
     "sizeM": "M",
     "sizeL": "L",
     "sizeXL": "XL",
-    "colorVariant": "Couleur"
+    "colorVariant": "Couleur",
+    "youMayAlsoLike": "Vous aimerez aussi"
   },
   "admin": {
     "title": "Tableau de bord",
