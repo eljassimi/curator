@@ -383,6 +383,17 @@ async function main() {
     },
   });
 
+  const existingProducts = await prisma.product.count();
+  const forceSeed =
+    process.env.FORCE_SEED === "1" || process.env.FORCE_SEED === "true";
+
+  if (existingProducts > 0 && !forceSeed) {
+    console.log(
+      "[seed] Catalog already has products — skipping product seed so orders are not wiped. Set FORCE_SEED=1 to reset catalog.",
+    );
+    return;
+  }
+
   await prisma.order.deleteMany();
   await prisma.product.deleteMany();
   for (const p of seedProducts) {

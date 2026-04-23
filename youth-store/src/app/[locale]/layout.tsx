@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Geist_Mono, Inter, Newsreader, Noto_Sans_Arabic } from "next/font/google";
+import { Geist_Mono, Inter, Newsreader, Cairo } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -22,10 +22,10 @@ const newsreader = Newsreader({
   style: ["normal", "italic"],
 });
 
-const notoArabic = Noto_Sans_Arabic({
-  variable: "--font-noto-arabic",
-  subsets: ["arabic"],
-  weight: ["400", "600", "700"],
+const cairo = Cairo({
+  variable: "--font-cairo",
+  subsets: ["arabic", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -67,7 +67,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
   const messages = await getMessages();
   const dir = locale === "ar" ? "rtl" : "ltr";
-  const fontVars = `${inter.variable} ${newsreader.variable} ${notoArabic.variable} ${geistMono.variable}`;
+  const fontVars = `${inter.variable} ${newsreader.variable} ${cairo.variable} ${geistMono.variable}`;
 
   return (
     <html lang={locale} dir={dir} className={`h-full ${fontVars} antialiased`}>
