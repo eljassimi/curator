@@ -138,16 +138,23 @@ if (!dbUrl.startsWith("mysql://")) {
   process.exit(1);
 }
 
+let migrateOk = true;
 try {
   sh("npx prisma migrate deploy");
 } catch (err) {
-  console.warn("[deploy-db] Warning: prisma migrate deploy failed. This may be due to network restrictions.");
+  migrateOk = false;
+  console.warn("[deploy-db] Warning: prisma migrate deploy failed. This may be due to credentials or network restrictions.");
   console.warn("[deploy-db] The build will continue. Run migrations manually if needed.");
   console.warn("[deploy-db] Error:", err.message || err);
 }
 
 if (process.env.SKIP_SEED === "1" || process.env.SKIP_SEED === "true") {
   console.log("[deploy-db] SKIP_SEED is set — skipping prisma db seed.");
+  process.exit(0);
+}
+
+if (!migrateOk) {
+  console.warn("[deploy-db] Skipping seed because migrations failed.");
   process.exit(0);
 }
 
