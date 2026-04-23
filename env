@@ -1,0 +1,4 @@
+DATABASE_URL="mysql://u619862958_curator:hXrQ5XE8@srv1589.hstgr.io:3306/u619862958_curator"
+JWT_SECRET="change-me-in-production"
+ADMIN_EMAIL="admin@curator.local"
+ADMIN_PASSWORD="admin123"
