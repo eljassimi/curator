@@ -5,7 +5,13 @@
   "license": "proprietary",
   "require": {},
   "scripts": {
-    "post-install-cmd": [],
-    "post-update-cmd": []
+    "post-install-cmd": [
+      "npm install --no-audit --no-fund",
+      "npm run build"
+    ],
+    "post-update-cmd": [
+      "npm install --no-audit --no-fund",
+      "npm run build"
+    ]
   }
 }
