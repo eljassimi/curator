@@ -1,0 +1,9 @@
+{
+  "name": "curator",
+  "private": true,
+  "scripts": {
+    "build": "cd youth-store && npm install && npm run build",
+    "start": "cd youth-store && npm start",
+    "postinstall": "cd youth-store && npm install"
+  }
+}
