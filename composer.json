@@ -1,0 +1,11 @@
+{
+  "name": "eljassimi/curator",
+  "description": "CURATOR storefront deployment marker for Hostinger.",
+  "type": "project",
+  "license": "proprietary",
+  "require": {},
+  "scripts": {
+    "post-install-cmd": [],
+    "post-update-cmd": []
+  }
+}
