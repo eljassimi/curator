@@ -6,12 +6,10 @@
   "require": {},
   "scripts": {
     "post-install-cmd": [
-      "npm install --no-audit --no-fund",
-      "npm run build"
+      "if command -v npm >/dev/null 2>&1; then npm install --no-audit --no-fund && npm run build; else echo 'npm not found in Composer runtime, skipping Node build.'; fi"
     ],
     "post-update-cmd": [
-      "npm install --no-audit --no-fund",
-      "npm run build"
+      "if command -v npm >/dev/null 2>&1; then npm install --no-audit --no-fund && npm run build; else echo 'npm not found in Composer runtime, skipping Node build.'; fi"
     ]
   }
 }
